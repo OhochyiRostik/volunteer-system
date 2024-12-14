@@ -1,0 +1,58 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% block title %} {{ avtor.name }} {% endblock title %}
+    {% block container %}
+            <div class="container py-md-3">
+    {% endblock container %}
+                {% block sidebar %}
+                <div class="side-bar col-lg-4">
+                {% endblock sidebar %}
+
+{% block event %}
+                <div class="left-ads-display col-lg-8">
+                    <div class="row">
+                        <div class="desc1-left col-md-6">
+                            <img src="{{avtor.image.url}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="desc1-right col-md-6 pl-lg-4">
+                            <h3 class="editContent" style="outline: none; cursor: inherit;">
+                                {{event.title}}
+                            </h3>
+                            <h5 class="editContent"></h5>
+                            <ul>
+                                <li style="list-style: none"><span><b>Вік: </b> {{ avtor.age }} років</span>
+                                </li>
+                                <li style="list-style: none">
+                                    <span><b>Автор:</b>
+                                        {% for event in avtor.film_director.all %}
+                                            {{event.title}}
+                                        {% endfor %}
+                                    </span></li>
+                                <!--<li><span><b>Автор 2:</b>-->
+<!--                                        {% for event in avtor.film_avtor.all %}-->
+<!--                                            {{event.title}}-->
+<!--                                        {% endfor %}-->
+<!--                                </span></li>-->
+                        </div>
+                    </div>
+                    <div class="row sub-para-w3layouts mt-5">
+
+                        <ul><h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
+                            Про {{avtor.name}}</h3>
+
+                        <p class="editContent" style="outline: none; cursor: inherit;">
+                            {{avtor.description}}
+                        </p></ul>
+<!--                        <p class="mt-3 italic-blue editContent"-->
+<!--                           style="outline: none; cursor: inherit;">-->
+<!--                            <iframe width="560" height="315"-->
+<!--                                    src="https://www.youtube.com/embed/A36LahZNUiE?controls=0"-->
+<!--                                    frameborder="0" allow="accelerometer; autoplay;-->
+<!--                                                                           encrypted-media; gyroscope; picture-in-picture"-->
+<!--                                    allowfullscreen>-->
+<!--                            </iframe>-->
+<!--                        </p>-->
+
+                    </div>
+                </div>
+{% endblock event %}
